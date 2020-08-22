@@ -4,7 +4,7 @@ const router = express.Router();
 const users = require("../dbHelpers/user-model.js");
 const restricted = require("../auth/restricted.js");
 
-router.get("/", restricted, (req, res) => {
+router.get("/", (req, res) => {
 	users
 		.listUsers()
 		.then((users) => {
