@@ -7,7 +7,7 @@ const howToRouter = require('./howTo-router.js')
 
 const server = express();
 
-// server.use(helmet());
+server.use(helmet());
 server.use(cors());
 server.use(express.json());
 

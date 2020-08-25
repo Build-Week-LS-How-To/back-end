@@ -10,10 +10,10 @@ function cleanTables(knex) {
     .then(() => console.log("\n== All tables truncated, ready to seed ==\n"));
 }
 
-// exports.seed = function (knex) {
-//   if (knex.client.config.client === "sqlite3") {
-//     return knex.raw("PRAGMA foreign_keys = OFF;").then(() => cleanTables(knex));
-//   } else {
-//     return cleanTables(knex);
-//   }
-// };
+exports.seed = function (knex) {
+  if (knex.client.config.client === "sqlite3") {
+    return knex.raw("PRAGMA foreign_keys = OFF;").then(() => cleanTables(knex));
+  } else {
+    return cleanTables(knex);
+  }
+};
