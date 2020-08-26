@@ -12,12 +12,11 @@ exports.up = function (knex) {
 		.createTable("hacks", (tbl) => {
 			tbl.increments();
 
-			tbl.binary('img_url', 256);
+			tbl.binary("img_url", 256);
 			tbl.string("title", 128).notNullable();
 			tbl.string("description", 256).notNullable();
-			tbl.string("steps", 256).notNullable().index();
-			tbl.float('upVote');
-			tbl.float('downVote');
+			tbl.float("upVote");
+			tbl.float("downVote");
 			tbl
 				.integer("userID")
 				.unsigned()
@@ -26,9 +25,25 @@ exports.up = function (knex) {
 				.inTable("users")
 				.onDelete("CASCADE")
 				.onUpdate("CASCADE");
+		})
+		.createTable("steps", (tbl) => {
+			tbl.increments();
+
+			tbl.string("step", 256).notNullable().index();
+			tbl
+				.integer("hackID")
+				.unsigned()
+				.notNullable()
+				.references("id")
+				.inTable("hacks")
+				.onDelete("CASCADE")
+				.onUpdate("CASCADE");
 		});
 };
 
 exports.down = function (knex) {
-	return knex.schema.dropTableIfExists("hacks").dropTableIfExists("users");
+	return knex.schema
+		.dropTableIfExists("steps")
+		.dropTableIfExists("hacks")
+		.dropTableIfExists("users");
 };
