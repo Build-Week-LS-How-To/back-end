@@ -14,9 +14,9 @@ exports.seed = function (knex) {
 			step: "Find solutions to prevent future occurences of the problem.",
 			hackID: 2,
 		},
-		{ step: "Use Cleansers.", hackID: 1 },
-		{ step: "Exfoliate.", hackID: 1 },
-		{ step: "Moisturize.", hackID: 1 },
+		{ step: "Use Cleansers.", hackID: 3 },
+		{ step: "Exfoliate.", hackID: 3 },
+		{ step: "Moisturize.", hackID: 3 },
 	];
 	return knex("steps")
 		.insert(steps)
