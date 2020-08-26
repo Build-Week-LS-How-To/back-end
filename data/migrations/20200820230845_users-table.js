@@ -12,9 +12,12 @@ exports.up = function (knex) {
 		.createTable("hacks", (tbl) => {
 			tbl.increments();
 
+			tbl.binary('img_url', 256);
 			tbl.string("title", 128).notNullable();
 			tbl.string("description", 256).notNullable();
 			tbl.string("steps", 256).notNullable().index();
+			tbl.float('upVote');
+			tbl.float('downVote');
 			tbl
 				.integer("userID")
 				.unsigned()
