@@ -2,6 +2,7 @@ const db = require("../data/db-config.js");
 
 module.exports = {
 	listHacks,
+	listSteps,
 	findBy,
 	findById,
 	addStep,
@@ -19,11 +20,6 @@ function findHackById(id) {
 	return db("hacks").where({ id }).first();
 }
 
-// async function addStep(step) {
-// 	try {
-// 		const [id] = await db("step").insert(step, "id");
-// 		return findById(id);
-// 	} catch (err) {
-// 		throw err;
-// 	}
-// }
+function listSteps() {
+	return db("steps").orderBy("id");
+}
