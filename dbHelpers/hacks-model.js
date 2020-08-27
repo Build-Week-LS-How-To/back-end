@@ -3,12 +3,11 @@ const db = require("../data/db-config.js");
 module.exports = {
 	listHacks,
 	listSteps,
-	findBy,
-	findById,
-	addStep,
+	findHackBy,
+	findHackById,
 };
 
-function listUsers() {
+function listHacks() {
 	return db("hacks").orderBy("id");
 }
 
