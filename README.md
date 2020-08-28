@@ -1,5 +1,6 @@
 # back-end
 # Schema Design
+https://app.dbdesigner.net/designer/schema/349658
 # Endpoints
 <h4>Register new user</h4>
 <li>https://how-to-1.herokuapp.com/api/users/register</li>
