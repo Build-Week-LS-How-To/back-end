@@ -37,7 +37,11 @@ router.get("/users/:id", (req, res) => {
 	users
 		.listUsers(id)
 		.then((user) => {
-			res.json(user);
+			if (user) {
+				res.json(user);
+			} else {
+				res.status(404).json({ message: "Cannot find user with given id" });
+			}
 		})
 		.catch((err) => {
 			res.status(500).json(err);
