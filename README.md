@@ -5,8 +5,14 @@
 <li>https://how-to-1.herokuapp.com/api/users/register</li>
 <h4>Login</h4>
 <li>https://how-to-1.herokuapp.com/api/users/login</li>
+<h4>GET users</h4>
+<li>https://how-to-1.herokuapp.com/api/howTo/users</li>
+<h4>GET user by id</h4>
+<li>https://how-to-1.herokuapp.com/api/howTo/users/:id</li>
 <h4>GET all hacks</h4>
 <li>https://how-to-1.herokuapp.com/api/howTo</li>
+<h4>GET hack by id</h4>
+<li>https://how-to-1.herokuapp.com/api/howTo/:id</li>
 <h4>GET steps for hacks</h4>
 <li>https://how-to-1.herokuapp.com/api/howTo/steps</li>
 <h4>POST create new hack</h4>
