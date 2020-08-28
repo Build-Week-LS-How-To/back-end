@@ -6,7 +6,7 @@ const hacks = require("../dbHelpers/hacks-model.js");
 const restricted = require("../auth/restricted.js");
 
 //Gets all hacks
-router.get("/", restricted, (req, res) => {
+router.get("/", (req, res) => {
 	users
 		.listUsers()
 		.leftJoin("hacks", "users.id", "hacks.userID")
@@ -20,7 +20,7 @@ router.get("/", restricted, (req, res) => {
 });
 
 //Gets users
-router.get("/users", restricted, (req, res) => {
+router.get("/users", (req, res) => {
 	users
 		.listUsers()
 		.then((users) => {
