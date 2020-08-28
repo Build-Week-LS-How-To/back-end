@@ -31,6 +31,19 @@ router.get("/users", restricted, (req, res) => {
 		});
 });
 
+//Gets user by id
+router.get("/users/:id", (req, res) => {
+	const { id } = req.params;
+	users
+		.listUsers(id)
+		.then((user) => {
+			res.json(user);
+		})
+		.catch((err) => {
+			res.status(500).json(err);
+		});
+});
+
 //Gets all steps
 router.get("/steps", (req, res) => {
 	hacks
