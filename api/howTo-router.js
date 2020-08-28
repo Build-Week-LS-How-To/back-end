@@ -35,7 +35,7 @@ router.get("/users", restricted, (req, res) => {
 router.get("/users/:id", (req, res) => {
 	const { id } = req.params;
 	users
-		.listUsers(id)
+		.findById(id)
 		.then((user) => {
 			if (user) {
 				res.json(user);
