@@ -10,7 +10,7 @@ router.get("/", restricted, (req, res) => {
 	users
 		.listUsers()
 		.leftJoin("hacks", "users.id", "hacks.userID")
-		.select("users.firstName", "users.lastName", "hacks.*")
+		// .select("users.firstName", "users.lastName", "hacks.*")
 		.then((hacks) => {
 			res.status(200).json(hacks);
 		})
