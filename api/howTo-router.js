@@ -31,6 +31,19 @@ router.get("/users", (req, res) => {
 		});
 });
 
+//Get users hacks
+router.get("/:id", (req, res) => {
+	const { id } = req.params;
+	hacks
+		.usersHack(id)
+		.then((hacks) => {
+			res.json(hacks);
+		})
+		.catch((err) => {
+			res.status(500).json({ message: "Failed to get hacks" });
+		});
+});
+
 //Gets user by id
 router.get("/users/:id", (req, res) => {
 	const { id } = req.params;
@@ -78,22 +91,6 @@ router.get("/steps", (req, res) => {
 		});
 });
 
-//Gets hack by ID
-router.get("/:id", (req, res) => {
-	const { id } = req.params;
-	hacks
-		.findHackById(id)
-		.then((hack) => {
-			if (hack) {
-				res.json(hack);
-			} else {
-				res.status(404).json({ message: "Could not find hack with given id" });
-			}
-		})
-		.catch((err) => {
-			res.status(500).json({ message: "Failed to get hack", err });
-		});
-});
 
 //Add a hack
 router.post("/", (req, res) => {

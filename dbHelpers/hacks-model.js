@@ -12,6 +12,7 @@ module.exports = {
 	updateStep,
 	removeHack,
 	removeStep,
+	usersHack,
 };
 
 function listHacks() {
@@ -34,6 +35,13 @@ function listSteps() {
 	return db("steps as s")
 		.join("hacks", "s.hackID", "hacks.id")
 		.select("hacks.title", "s.step");
+}
+
+function usersHack(id) {
+	return db("hacks as h")
+		.join("users as u", "h.userID", "u.id")
+		.select("u.firstName", "u.lastname", "h.*")
+		.where({ userID: id });
 }
 
 function addHack(hack) {
