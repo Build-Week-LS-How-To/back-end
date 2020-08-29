@@ -2,7 +2,7 @@ exports.up = function (knex) {
 	return knex.schema
 		.createTable("users", (tbl) => {
 			tbl.increments();
-
+			
 			tbl.string("username", 128).notNullable().unique().index();
 			tbl.string("password", 128).notNullable();
 			tbl.string("firstName", 128);
@@ -15,6 +15,12 @@ exports.up = function (knex) {
 			tbl.binary("img_url", 256);
 			tbl.string("title", 128).notNullable();
 			tbl.string("description", 256).notNullable();
+			tbl.string('stepOneTitle');
+			tbl.string('stepOneDescription');
+			tbl.string('stepTwoTitle');
+			tbl.string('stepTwoDescription');
+			tbl.string('stepThreeTitle');
+			tbl.string('stepThreeDescription');
 			tbl.float("upVote");
 			tbl.float("downVote");
 			tbl

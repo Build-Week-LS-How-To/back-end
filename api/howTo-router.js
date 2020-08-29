@@ -7,9 +7,9 @@ const restricted = require("../auth/restricted.js");
 
 //Gets all hacks
 router.get("/", (req, res) => {
-	users
-		.listUsers()
-		.leftJoin("hacks", "users.id", "hacks.userID")
+	hacks
+		.listHacks()
+		.join("users", "users.id", "hacks.userID")
 		.select("users.firstName", "users.lastName", "hacks.*")
 		.then((hacks) => {
 			res.status(200).json(hacks);
@@ -41,6 +41,24 @@ router.get("/users/:id", (req, res) => {
 				res.json(user);
 			} else {
 				res.status(404).json({ message: "Cannot find user with given id" });
+			}
+		})
+		.catch((err) => {
+			res.status(500).json(err);
+		});
+});
+
+//Update user
+router.put("/users/:id", (req, res) => {
+	const { id } = req.params;
+	const changes = req.body;
+	users
+		.updateUser(changes, id)
+		.then((user) => {
+			if (user) {
+				res.json(user);
+			} else {
+				res.status(404).json({ message: "Could not find user with given id" });
 			}
 		})
 		.catch((err) => {
