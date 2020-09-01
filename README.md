@@ -14,7 +14,8 @@ https://app.dbdesigner.net/designer/schema/349658
 <li>https://how-to-1.herokuapp.com/api/howTo/users/:id</li>
 <h4>GET all hacks</h4>
 <li>https://how-to-1.herokuapp.com/api/howTo</li>
-<h4>GET hack by id</h4>
+<h4>GET logged in user's hacks</h4>
+<h5>where id equal user's id</h5>
 <li>https://how-to-1.herokuapp.com/api/howTo/:id</li>
 <h4>GET steps for hacks</h4>
 <li>https://how-to-1.herokuapp.com/api/howTo/steps</li>
