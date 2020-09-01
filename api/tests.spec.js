@@ -17,7 +17,7 @@ describe("tests for auth register", () => {
 	test("returns json", () => {
 		return request(server)
 			.post("/api/users/register")
-			.send({ username: "testUser1", password: "password" })
+			.send({ username: "test1", password: "pass1" })
 			.then((res) => {
 				expect(res.type).toEqual("application/json");
 			});
